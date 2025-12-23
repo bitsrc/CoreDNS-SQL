@@ -9,5 +9,5 @@ This project packages CoreDNS alongside pdsql, enabling DNS queries to be resolv
 ## Features
 
 - **CoreDNS**: Modern DNS server written in Go
-- **pdsql**: PostgreSQL backend plugin for CoreDNS
+- **pdsql**: SQL backend plugin for CoreDNS
 - **PostgreSQL**: Database driver
