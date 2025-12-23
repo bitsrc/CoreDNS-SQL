@@ -1,4 +1,4 @@
-# CoreDNS-sql
+# CoreDNS-SQL
 
 A Docker container project that combines CoreDNS with the pdsql plugin and PostgreSQL bindings
 
