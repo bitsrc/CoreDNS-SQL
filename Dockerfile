@@ -1,10 +1,12 @@
 FROM golang:1.25-alpine AS build
 
+ARG COREDNS_VERSION=1.13.2
+
 WORKDIR /src
 
 RUN apk update && apk add --no-cache git make
 
-RUN git clone https://github.com/coredns/coredns
+RUN git clone --branch v${COREDNS_VERSION} https://github.com/coredns/coredns
 
 RUN echo "pdsql:github.com/wenerme/coredns-pdsql\npdsql_postgres:github.com/jinzhu/gorm/dialects/postgres" >> /src/coredns/plugin.cfg
 
@@ -17,6 +19,8 @@ RUN go generate
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o /out/coredns
 
 FROM alpine:3
+
+LABEL org.opencontainers.image.authors="jason@bitsrc.net"
 
 RUN apk update && apk add --no-cache dumb-init
 
