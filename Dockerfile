@@ -31,5 +31,5 @@ RUN touch /etc/coredns/Corefile
 
 EXPOSE 53/udp 53/tcp
 
-ENTRYPOINT ["/bin/dumb-init", "--", "/coredns"]
+ENTRYPOINT ["dumb-init", "--", "/coredns"]
 CMD ["-conf", "/etc/coredns/Corefile"]
