@@ -8,7 +8,7 @@ RUN apk update && apk add --no-cache git make
 
 RUN git clone --branch v${COREDNS_VERSION} https://github.com/coredns/coredns
 
-RUN echo "pdsql:github.com/wenerme/coredns-pdsql\npdsql_postgres:github.com/jinzhu/gorm/dialects/postgres" >> /src/coredns/plugin.cfg
+RUN echo -e "pdsql:github.com/wenerme/coredns-pdsql\npdsql_postgres:github.com/jinzhu/gorm/dialects/postgres" >> /src/coredns/plugin.cfg
 
 WORKDIR /src/coredns
 
