@@ -1,6 +1,6 @@
 FROM golang:1.25-alpine AS build
 
-ARG COREDNS_VERSION=1.13.2
+ARG COREDNS_VERSION=1.14.0
 
 WORKDIR /src
 
