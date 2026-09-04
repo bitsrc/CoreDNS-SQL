@@ -1,7 +1,7 @@
 ARG COREDNS_VERSION=1.14.7
-ARG CONTAINER_VERSION=0.2.8
+ARG CONTAINER_VERSION=0.2.9
 
-FROM golang:1.26-alpine AS build
+FROM golang:1.27-alpine AS build
 
 ARG COREDNS_VERSION
 
@@ -28,7 +28,7 @@ ARG CONTAINER_VERSION
 LABEL org.opencontainers.image.authors="jason@bitsrc.net"
 LABEL org.opencontainers.image.version="${CONTAINER_VERSION}"
 
-RUN apk upgrade --no-cache && apk add --no-cache dumb-init
+RUN apk update && apk upgrade --no-cache && apk add --no-cache dumb-init
 
 COPY --from=build /out/coredns /coredns
 
