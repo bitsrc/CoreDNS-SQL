@@ -1,5 +1,5 @@
-ARG COREDNS_VERSION=1.14.3
-ARG CONTAINER_VERSION=0.2.7
+ARG COREDNS_VERSION=1.14.7
+ARG CONTAINER_VERSION=0.2.8
 
 FROM golang:1.26-alpine AS build
 
@@ -21,7 +21,7 @@ RUN go generate
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o /out/coredns
 
-FROM alpine:3.21
+FROM alpine:3.24
 
 ARG CONTAINER_VERSION
 
